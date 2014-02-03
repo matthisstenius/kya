@@ -1,0 +1,518 @@
+@import "mixin";
+@import "base";
+@import "grid";
+@import "fonts";
+
+// Colors
+$red: #B72D16;
+$grey: #556270;
+$blueGrey: #395875;
+$blue: #4DA9CD;
+$lightBlue: #F0F7FA;
+$green: #74B152;
+$lightGreen: #8ECB6C;
+$orange: #D24D33;
+
+/* ---------------------------------------------------------------- 
+ *  Base
+ * ---------------------------------------------------------------- 
+*/ 
+	html {
+		background: url('img/bg.png');
+	}
+	
+	body {
+		font-size: 16px;
+		font-family: $body;
+		padding: 20px;
+	}
+
+	.wrapper {
+		background-color: #fff;
+		margin: 0 auto;
+		-webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, .2);
+		box-shadow: 0 0 7px 0 rgba(0, 0, 0, .2);
+	}
+
+	.clearfix:before,
+	.clearfix:after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	}
+
+	.clearfix:after {
+	    clear: both;
+	}
+
+	.nav ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			float: left;
+			padding-left: 10px;
+		}
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		border: 1px solid #ddd;
+		padding: 3px;
+		border-radius: 3px;
+	}
+
+/* ---------------------------------------------------------------- 
+ *  WP-classes
+ * ---------------------------------------------------------------- 
+*/ 
+	.alignleft, .alignright {
+		@include breakpoint(500px) {
+			float: none !important; 
+		}
+	}
+
+	.alignleft {
+		float: left;
+		margin: 10px 10px 10px 0;
+	}
+
+	.alignright {
+		float: right;
+		margin: 10px 0 10px 10px;
+	}
+
+/* ---------------------------------------------------------------- 
+ *  Typo
+ * ---------------------------------------------------------------- 
+*/ 
+	h1, h2, h3, h4 {
+		color: $red;
+		font-weight: normal;
+	}
+
+	h2 {
+		font-size: 1.5em;
+	}
+
+	h3 {
+		font-size: 1.3em;
+	}
+
+	h4 {
+		font-size: 1.2em;
+	}
+
+	a {
+		color: $blue;
+		text-decoration: none;
+
+		&:hover {
+			color: $red;
+		}
+	}
+
+	.active {
+	   	color: $red !important;
+
+	   	&:hover {
+	   		color: $red;
+	   	}
+	}
+
+	.show {
+		display: block !important;
+	}
+	[class*='icon-'] {
+		padding-right: 5px;
+	}
+/* ---------------------------------------------------------------- 
+ *  Header
+ * ---------------------------------------------------------------- 
+*/ 
+	.main-nav {
+		background-color: $orange;
+		margin:  20px -10px;
+
+		a {
+			color: white;
+			text-transform: uppercase;
+			display: block;
+			padding: 10px;
+		}
+
+		.current_page_item a {
+			background-color: white;
+			color: black;
+		}
+
+		.dropdown-menu {
+			display: none;
+			font-size: 1.2em;
+			text-align: center;
+
+			@include breakpoint(719px) {
+				display: block;
+			}	
+		}
+
+		ul {
+			@include breakpoint(781px) {
+				font-size: .9em;
+			}
+
+			
+			@include breakpoint(719px) {
+				display: none;
+
+				li {
+					float: none;
+					padding-left: 0;
+				}
+			}	
+			
+		}
+	}
+
+	.logo {
+		text-decoration: none;
+		font-size: 1.5em;
+		color: black;
+	}
+
+	.langpick {
+		float: right;
+
+		@include breakpoint(499px) {
+			float: none;
+			margin: 10px 0;
+		}
+	}
+
+	.lang {
+		display: block;
+		width: 18px;
+		height: 12px;
+		float: left;
+		margin-right: 5px;
+	}
+
+	.lang-se {
+		background: url('img/se.png') no-repeat;
+	}
+
+	.lang-en {
+		background: url('img/gb.png') no-repeat;
+	}
+
+/* ---------------------------------------------------------------- 
+ *  Home
+ * ---------------------------------------------------------------- 
+*/ 
+	.quotes-area {
+		background: url('img/beach-yoga.jpg') no-repeat center center;
+		background-size: cover;
+		height: 400px;
+
+		p {
+			font-size: 2.3em;
+			width: 60%;
+			float: right;
+			text-align: center;
+			color: white;
+			margin: 50px 50px 0 0;
+
+			@include breakpoint(600px) {
+				float: none;
+				width: 100%;
+				font-size: 1.1em;
+			}
+		}
+
+		@include breakpoint(750px) {
+			height: 300px;
+		}
+
+		@include breakpoint(600px) {
+			height: 200px;
+		}
+	}
+
+	.quote {
+		text-align: center;
+		color: $blueGrey;
+		margin: 20px 0;
+		border-bottom: 1px solid #ddd;
+		border-top: 1px solid #ddd;
+
+		.inner-quote {
+			max-width: 80%;
+			margin: 0 auto;
+		}
+
+		blockquote {
+			font-size: 1.4em;
+			font-family: $quote;
+			font-style: italic; 
+			margin: 20px 0 0 0;
+			display: inline-block;
+			position: relative;
+
+			p:before, p:after {
+				color: $orange;
+				font-size: 7.4em;
+				position: absolute;
+			}
+
+			p:before {
+				content: open-quote;
+				top: -54px;
+				left: -90px;
+			}
+
+			@include breakpoint(637px) {
+				font-size: 1.2em;
+
+				p:before {
+					content: open-quote;
+					top: -54px;
+					left: -59px;
+				}
+			}
+		}
+
+		.author {
+			text-align: right
+		}
+
+	}
+
+	.features {
+		margin: 20px 0;
+
+		h2 {
+			margin-top: 0;
+			text-align: center;
+		}
+	}
+
+	.feature-one, .feature-two {
+		min-height: 241px;
+	}
+
+	.feature-one, .feature-two {
+		background-color: $lightBlue;
+
+		img {
+			border: none;
+		}
+
+		h2 {
+			color: $blueGrey;
+		}
+	}
+
+	.feature-news {
+		border: 1px solid #ddd;
+
+		h2 {
+			margin: 0;
+			font-size: 1.2em;
+			color: white;
+		}
+
+		header {
+			background-color: $blueGrey;
+		}
+	}
+
+	.news {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li:nth-child(odd) {
+			border-top: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+		}
+
+		a {
+			text-decoration: none;
+			display: block;
+
+			&:hover {
+				background-color: #F7F7F7;
+			}
+		}
+	}
+
+/* ---------------------------------------------------------------- 
+ *  Page
+ * ---------------------------------------------------------------- 
+*/ 	
+	.content {
+		article {
+			width: 90%;
+		}
+
+		h1 {
+			margin-top: 0;
+		}
+
+		h2 {
+			margin-top: 30px;
+			clear: both;
+
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+		
+		p:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.nav-page li {
+		display: inline-block;
+		padding: 5px 10px;
+		border-radius: 3px;
+		border: none;
+		text-align: center;
+		background-color: $orange;
+		margin-right: 10px;
+
+		a {
+			color: white;
+		}
+
+		&:hover {
+			color: white;
+		}
+
+		@include breakpoint(400px) {
+			display: block;
+			float: none !important;
+			margin: 10px 0;
+		}
+	}
+
+	.nav-page .current_page_item {
+		background-color: $blueGrey;
+	}
+
+	.sidebar {
+		margin-top: 10px;
+	}
+
+/* ---------------------------------------------------------------- 
+ *  Blog
+ * ---------------------------------------------------------------- 
+*/
+	.blog-posts {
+		padding: 20px 0;
+		border-bottom: 1px solid #ddd;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
+
+		img {
+			float: left;
+		}
+
+		article {
+			padding-left: 10px;
+		}
+
+		p {
+			color: initial;
+		}
+	}
+/* ----------------------------------------------------------------
+ *  Contact Form
+ * ----------------------------------------------------------------
+*/
+
+
+label {
+  display: block;
+  color: $blueGrey;
+  margin: 20px 0 10px 0;
+}
+
+.wpcf7-form-control-wrap {
+	display: block;
+}
+
+form input, textarea {
+	padding: 11px;
+	width: 90%;
+    display: block;
+    border: 1px solid #ccc;
+    font-size: 0.8em;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-transition: 0.3s linear border;
+    -moz-transition: 0.3s linear border;
+    -ms-transition: 0.3s linear border;
+    -o-transition: 0.3s linear border;
+    transition: 0.3s linear border;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+
+    &:focus {
+    	outline: 0;
+    	outline: thin dotted \9; /* IE6-9 */
+    	border-color: #129FEA;
+    }
+}
+
+textarea {
+  min-height: 170px;
+}
+
+input[type=submit], .btn-read-more {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  text-align: center;
+
+  &:hover {
+  	color: white;
+  }
+}
+
+input[type=submit] {
+  background: $blue;
+  font-size: 1.3em;
+}
+
+.btn-read-more {
+	background-color: $blueGrey;
+	padding: 10px;
+}
+
+.wpcf7-response-output {
+  margin: 0;
+  padding: 0;
+}
+
+.wpcf7-validation-errors {
+  color: $red;
+}
+
+/* ----------------------------------------------------------------
+ *  Footer
+ * ----------------------------------------------------------------
+*/
+	footer {
+		text-align: center;
+		padding: 20px 0;
+	}
