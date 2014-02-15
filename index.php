@@ -2,12 +2,8 @@
 
 	<?php $catId = get_cat_id('archive'); ?>
 	<?php echo "<a href='" . get_category_link($catId) . "'>Archive</a>" ?>
+
 		<?php while (have_posts() ) : the_post(); ?>
-
-	<?php $query = new WP_Query('category_name=archive')?>
-
-		<?php while ($query->have_posts() ) : $query->the_post(); ?>
-
 			
 			<section class="blog-posts clearfix">
 				<a href="<?php the_permalink(); ?>">
@@ -18,7 +14,7 @@
 							}
 						
 							else {
-								echo '<img src="' . get_bloginfo("template_url").'/img/default.jpg" />';
+								echo '<img src="'.get_bloginfo("template_url").'/img/default.jpg" />';
 							}
 						?>
 					
@@ -27,8 +23,7 @@
 				
 				<article class="col-2-3">
 					<h2><?php the_title(); ?></h2>
-
-					<p class="author"><?php the_author(); ?></p>
+					<p><?php the_author(); ?></p>
 
 					<?php the_excerpt(); ?>
 					
@@ -37,5 +32,5 @@
 			</section> <!--end .blog-post-->
 			
 		<?php endwhile; ?>
-
+	
 <?php get_footer(); ?> 		
