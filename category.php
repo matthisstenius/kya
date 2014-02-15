@@ -1,10 +1,5 @@
 <?php get_header(); ?>
-
-	<?php $catId = get_cat_id('archive'); ?>
-	<?php echo "<a href='" . get_category_link($catId) . "'>Archive</a>" ?>
-	
-	<?php $query = new WP_Query(array('category__not_in' => array($catId))) ?>
-		<?php while ($query->have_posts() ) : $query->the_post(); ?>
+		<?php while (have_posts() ) : the_post(); ?>
 			
 			<section class="blog-posts clearfix">
 				<a href="<?php the_permalink(); ?>">
