@@ -6,13 +6,19 @@
 		</header>
 		
 		<ul class="news">
-			<?php query_posts('showposts=10')?>
+			<?php $catId = get_cat_id('archive'); ?>
+			<?php $query = new WP_Query(array(
+										'category__not_in' => array($catId),
+										'posts_per_page' => 10)) ?>
 
-			<?php while(have_posts() ) : the_post(); ?>
+
+
+			<?php while($query->have_posts() ) : $query->the_post(); ?>
 				
 			<li><a class="pad" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 
 			<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
 		</ul>
 	</div>
 	
