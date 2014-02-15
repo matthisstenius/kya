@@ -1,7 +1,11 @@
-<?php get_header(); ?>
-	<?php $query = new WP_Query('category_name=archive')?>
+<?php
+/* 
+	Template Name: Post Archive
+*/
+ ?>
 
-		<?php while ($query->have_posts() ) : $query->the_post(); ?>
+<?php get_header(); ?>
+		<?php while (have_posts() ) : the_post(); ?>
 			
 			<section class="blog-posts clearfix">
 				<a href="<?php the_permalink(); ?>">
