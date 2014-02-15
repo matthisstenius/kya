@@ -62,7 +62,20 @@ $orange: #D24D33;
 		padding: 3px;
 		border-radius: 3px;
 	}
-
+	
+	.author {
+		font-weight: bold;
+		font-size: 1.1em;
+	}
+	.btn {
+		display: inline-block;
+		padding: 5px 10px;
+		border-radius: 3px;
+		border: none;
+		text-align: center;
+		background-color: $orange;
+		margin-right: 10px;
+	}
 /* ---------------------------------------------------------------- 
  *  WP-classes
  * ---------------------------------------------------------------- 
