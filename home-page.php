@@ -7,7 +7,7 @@
  <?php get_header(); ?>
  
  <div class="quotes-area pad">
- 	<?php $the_query = new WP_Query('page_id=5') ?>
+ 	<?php $the_query = new WP_Query('page_id=7') ?>
  	<?php while ($the_query->have_posts() ) : $the_query->the_post(); ?>
 
  		<?php the_content(); ?>
