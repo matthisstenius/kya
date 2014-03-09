@@ -24,7 +24,6 @@
 				
 				<article class="col-2-3">
 					<h2><?php the_title(); ?></h2>
-					<p><?php the_author(); ?></p>
 
 					<?php the_excerpt(); ?>
 					

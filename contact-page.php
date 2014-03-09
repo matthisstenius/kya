@@ -27,7 +27,7 @@
 
 		
 		<section class="contact-form col-1-2">
-			<?php echo do_shortcode('[contact-form-7 id="202" title="Contact form 1"]'); ?>
+			<?php echo do_shortcode('[contact-form-7 id="623" title="Contact form"]'); ?>
 		</section>
 		
 
