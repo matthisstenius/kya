@@ -8,6 +8,7 @@
 		<ul class="news">
 			<?php $catId = get_cat_id('archive'); ?>
 			<?php $query = new WP_Query(array(
+										'ignore_sticky_posts' => 1,
 										'category__not_in' => array($catId),
 										'posts_per_page' => 10)) ?>
 
